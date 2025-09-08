@@ -29,7 +29,7 @@ const ExperienceCard = ({ exp, onAccept, onDecline, onToggleFeatured, role }) =>
         </div>
       )}
       <button onClick={() => setShowDetails(true)} className="mt-4 text-blue-500 hover:underline flex items-center">
-        👁️ Learn More {/* Simple eye character */}
+        Learn More 
       </button>
       <div className="mt-4">
         {exp.documents.map((doc, idx) => (
