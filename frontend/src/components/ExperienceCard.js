@@ -18,7 +18,7 @@ const ExperienceCard = ({ exp, onAccept, onDecline, onToggleFeatured, role }) =>
         )}
       </div>
       <p className="text-gray-600 text-sm mb-2">{new Date(exp.date).toLocaleDateString()}</p>
-      <p className="text-gray-700 mb-4">{exp.description.substring(0, 100)}...</p>
+      <p className="text-gray-700 mb-4">{exp.description.substring(0, 100)}</p>
       <span className={`px-3 py-1 text-sm rounded-full ${exp.status === 'APPROVED' ? 'bg-green-100 text-green-800' : exp.status === 'REJECTED' ? 'bg-red-100 text-red-800' : 'bg-yellow-100 text-yellow-800'}`}>
         {exp.status}
       </span>
