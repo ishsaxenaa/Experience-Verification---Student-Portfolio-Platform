@@ -35,9 +35,13 @@ const ExperienceCard = ({ exp, onAccept, onDecline, onToggleFeatured, role }) =>
         {exp.documents.map((doc, idx) => (
           <div key={idx} className="mb-2">
             {isImage(doc) ? (
-              <img src={`/api/documents/${doc.split('/').pop()}`} alt={`Document ${idx + 1}`} className="w-full h-auto rounded" />
+              <img src={`https://experience-verification-student.onrender.com/api/documents/${doc.split('/').pop()}`} alt={`Document ${idx + 1}`} className="w-full h-auto rounded" />
             ) : (
-              <a href={`/api/documents/${doc.split('/').pop()}`} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline flex items-center">
+              <a 
+              href={`https://experience-verification-student.onrender.com/api/documents/${doc.split('/').pop()}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover: underline flex items-center"
                 👁️ View Document {idx + 1}
               </a>
             )}
