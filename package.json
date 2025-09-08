@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "autoprefixer": "^10.4.21",
+    "mongodb": "^6.19.0"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0"
+  }
+}
