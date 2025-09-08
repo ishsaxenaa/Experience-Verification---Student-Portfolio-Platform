@@ -42,7 +42,7 @@ const ExperienceCard = ({ exp, onAccept, onDecline, onToggleFeatured, role }) =>
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover: underline flex items-center"
-                👁️ View Document {idx + 1}
+                View Document {idx + 1}
               </a>
             )}
           </div>
