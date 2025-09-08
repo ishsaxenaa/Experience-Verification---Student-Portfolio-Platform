@@ -33,8 +33,8 @@ const StudentDashboard = ({ token, logout }) => {
       const config = { headers: { Authorization: `Bearer ${token}` } };
       try {
         const [userRes, expRes] = await Promise.all([
-          axios.get('/api/user/me', config),
-          axios.get('/api/experience/student', config),
+          axios.get('https://experience-verification-student.onrender.com/api/user/me', config),
+          axios.get('https://experience-verification-student.onrender.com/api/experience/student', config),
         ]);
         setUser(userRes.data);
         const allExp = expRes.data;
@@ -82,8 +82,8 @@ const StudentDashboard = ({ token, logout }) => {
     const config = { headers: { Authorization: `Bearer ${token}` } };
     try {
       console.log(`Performing ${action} on experience ID: ${id}`);
-      await axios.post(`/api/experience/${id}/${action}`, {}, config);
-      const res = await axios.get('/api/experience/student', config);
+      await axios.post(`https://experience-verification-student.onrender.com/api/experience/${id}/${action}`, {}, config);
+      const res = await axios.get('https://experience-verification-student.onrender.com/api/experience/student', config);
       const allExp = res.data;
       console.log('Updated experiences:', allExp.map(exp => ({
         _id: exp._id,
@@ -159,7 +159,7 @@ const StudentDashboard = ({ token, logout }) => {
       };
 
       // Use a single patch request to update all profile fields, including publicUrl and isPublic
-      const res = await axios.patch('/api/user/profile', formData, config);
+      const res = await axios.patch('https://experience-verification-student.onrender.com/api/user/profile', formData, config);
       console.log('Profile update response:', res.data);
 
       if (res.data.profilePic) {
@@ -168,7 +168,7 @@ const StudentDashboard = ({ token, logout }) => {
 
       alert('Profile updated successfully');
 
-      const userRes = await axios.get('/api/user/me', { headers: { Authorization: `Bearer ${token}` } });
+      const userRes = await axios.get('https://experience-verification-student.onrender.com/api/user/me', { headers: { Authorization: `Bearer ${token}` } });
       const updatedProfile = {
         bio: userRes.data.profile?.bio || '',
         skills: Array.isArray(userRes.data.profile?.skills) ? userRes.data.profile.skills : [],
@@ -234,7 +234,7 @@ const StudentDashboard = ({ token, logout }) => {
   const publishPortfolio = async () => {
     const config = { headers: { Authorization: `Bearer ${token}` } };
     try {
-      const res = await axios.post('/api/portfolio/publish', { username: profile.customUrl }, config);
+      const res = await axios.post('https://experience-verification-student.onrender.com/api/portfolio/publish', { username: profile.customUrl }, config);
       setProfile((prev) => ({
         ...prev,
         customUrl: res.data.publicUrl.replace('/portfolio/', ''),
@@ -251,8 +251,8 @@ const StudentDashboard = ({ token, logout }) => {
     const config = { headers: { Authorization: `Bearer ${token}` } };
     try {
       console.log(`Toggling featured for experience ID: ${id}`);
-      await axios.patch(`/api/experience/${id}/feature`, {}, config);
-      const res = await axios.get('/api/experience/student', config);
+      await axios.patch(`https://experience-verification-student.onrender.com/api/experience/${id}/feature`, {}, config);
+      const res = await axios.get('https://experience-verification-student.onrender.com/api/experience/student', config);
       const allExp = res.data;
       console.log('Updated experiences after feature toggle:', allExp.map(exp => ({
         _id: exp._id,
