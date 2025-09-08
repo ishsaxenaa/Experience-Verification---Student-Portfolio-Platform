@@ -46,7 +46,8 @@ const PortfolioBuilder = ({ user, token, setUser }) => {
     if (file) data.append('profilePic', file);
     const config = { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' } };
     try {
-      const res = await axios.patch('/api/user/profile', data, config);
+      //const res = await axios.patch('/api/user/profile', data, config);
+      const res = await axios.patch('https://experience-verification-student.onrender.com/api/user/profile', data, config);
       setUser({ ...user, profile: res.data });
       setFile(null);
       alert('Profile updated successfully');
@@ -60,7 +61,8 @@ const PortfolioBuilder = ({ user, token, setUser }) => {
     if (!username) return;
     const config = { headers: { Authorization: `Bearer ${token}` } };
     try {
-      const res = await axios.post('/api/portfolio/publish', { username }, config);
+      //const res = await axios.post('/api/portfolio/publish', { username }, config);
+      const res = await axios.post('https://experience-verification-student.onrender.com/api/portfolio/publish', { username }, config);
       setUser({ ...user, profile: { ...user.profile, publicUrl: res.data.publicUrl } });
       alert(`Public URL: ${window.location.origin}${res.data.publicUrl}`);
     } catch (err) {
