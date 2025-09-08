@@ -23,7 +23,7 @@ if (!fs.existsSync(uploadDir)) {
 // Configure CORS
 app.use(
   cors({
-    origin: 'http://localhost:3000','https://experience-verification-student-por-eight.vercel.app'
+    origin: 'https://experience-verification-student-por-eight.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   })
