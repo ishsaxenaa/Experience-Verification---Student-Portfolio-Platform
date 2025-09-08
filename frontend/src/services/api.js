@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5001/api', // Hardcode for testing
+  //baseURL: 'http://localhost:5001/api', // Hardcode for testing
+  baseURL: 'https://experience-verification-student.onrender.com/api', // deployed backend URL
 });
 
 api.interceptors.request.use((config) => {
