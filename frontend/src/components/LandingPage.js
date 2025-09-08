@@ -24,8 +24,8 @@ const LandingPage = () => {
           Empower your career with a platform to validate experiences and build a stunning portfolio.
         </p>
         <div className="space-x-4">
-          <a href="#how-it-works" className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-purple-600 transition duration-300">Get Started</a>
-          <a href="#learn-more" className="border-2 border-blue-500 text-blue-500 px-6 py-3 rounded-lg hover:bg-blue-50 transition duration-300">Learn More</a>
+          <Link to="/login" className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-purple-600 transition duration-300"> Get Started  </Link>
+          <a href="#how-it-works" className="border-2 border-blue-500 text-blue-500 px-6 py-3 rounded-lg hover:bg-blue-50 transition duration-300">Learn More</a>
         </div>
       </section>
 
