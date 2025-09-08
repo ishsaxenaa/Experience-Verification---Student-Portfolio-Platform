@@ -10,7 +10,7 @@ const Login = ({ setToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/auth/login', { email, password });
+      const res = await axios.post('https://experience-verification-student.onrender.com/api/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
       setToken(res.data.token);
       const role = JSON.parse(atob(res.data.token.split('.')[1])).role;
