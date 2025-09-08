@@ -21,7 +21,7 @@ const OrgDashboard = ({ token, logout }) => {
       setLoading(true);
       const config = { headers: { Authorization: `Bearer ${token}` } };
       try {
-        const res = await axios.get('/api/experience', config);
+        const res = await axios.get('https://experience-verification-student.onrender.com/api/experience', config);
         setExperiences(res.data);
       } catch (err) {
         alert('Error fetching: ' + (err.response?.data?.error || 'Unknown error'));
@@ -44,12 +44,12 @@ const OrgDashboard = ({ token, logout }) => {
     const config = { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' } };
     try {
       if (editingId) {
-        await axios.patch(`/api/experience/${editingId}`, data, config);
+        await axios.patch(`https://experience-verification-student.onrender.com/api/experience/${editingId}`, data, config);
         setEditingId(null);
       } else {
         await axios.post('/api/experience', data, config);
       }
-      const res = await axios.get('/api/experience', { headers: { Authorization: `Bearer ${token}` } });
+      const res = await axios.get('https://experience-verification-student.onrender.com/api/experience', { headers: { Authorization: `Bearer ${token}` } });
       setExperiences(res.data);
       setFormData({ activityName: '', achievementLevel: '', description: '', date: '', studentEmail: '', category: '' });
       setFiles([]);
@@ -75,7 +75,7 @@ const OrgDashboard = ({ token, logout }) => {
   const handleDelete = async (id) => {
     const config = { headers: { Authorization: `Bearer ${token}` } };
     try {
-      await axios.delete(`/api/experience/${id}`, config);
+      await axios.delete(`https://experience-verification-student.onrender.com/api/experience/${id}`, config);
       setExperiences(prev => prev.filter(exp => exp._id !== id));
     } catch (err) {
       alert('Error: ' + (err.response?.data?.error || 'Unknown error'));
@@ -85,8 +85,8 @@ const OrgDashboard = ({ token, logout }) => {
   const handleApprove = async (id) => {
     const config = { headers: { Authorization: `Bearer ${token}` } };
     try {
-      await axios.post(`/api/experience/${id}/approve`, {}, config);
-      const res = await axios.get('/api/experience', config);
+      await axios.post(`https://experience-verification-student.onrender.com/api/experience/${id}/approve`, {}, config);
+      const res = await axios.get('https://experience-verification-student.onrender.com/api/experience', config);
       setExperiences(res.data);
     } catch (err) {
       alert('Error: ' + (err.response?.data?.error || 'Unknown error'));
@@ -96,8 +96,8 @@ const OrgDashboard = ({ token, logout }) => {
   const handleReject = async (id) => {
     const config = { headers: { Authorization: `Bearer ${token}` } };
     try {
-      await axios.post(`/api/experience/${id}/reject`, {}, config);
-      const res = await axios.get('/api/experience', config);
+      await axios.post(`https://experience-verification-student.onrender.com/api/experience/${id}/reject`, {}, config);
+      const res = await axios.get('https://experience-verification-student.onrender.com/api/experience', config);
       setExperiences(res.data);
     } catch (err) {
       alert('Error: ' + (err.response?.data?.error || 'Unknown error'));
