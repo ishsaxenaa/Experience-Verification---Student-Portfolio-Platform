@@ -9,7 +9,7 @@ const PortfolioPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(`http://localhost:5000/api/portfolio/${username}`);
+      const res = await axios.get(`https://experience-verification-student.onrender.com/api/portfolio/${username}`);
       setData(res.data);
     };
     fetchData();
