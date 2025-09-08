@@ -18,7 +18,7 @@ const Register = ({ setToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/auth/register', formData);
+      const res = await axios.post('https://experience-verification-student.onrender.com/api/auth/register', formData);
       localStorage.setItem('token', res.data.token);
       setToken(res.data.token);
       const role = JSON.parse(atob(res.data.token.split('.')[1])).role;
