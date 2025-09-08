@@ -14,7 +14,9 @@ const PublicPortfolio = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`/api/portfolio/${username}`);
+        //const res = await axios.get(`/api/portfolio/${username}`);
+        const res = await axios.get(`https://experience-verification-student.onrender.com/api/portfolio/${username}`);
+
         setData(res.data);
       } catch (err) {
         setError('Portfolio not found: ' + (err.response?.data?.error || 'Unknown error'));
